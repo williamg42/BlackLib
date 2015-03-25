@@ -41,7 +41,10 @@
 #include <fcntl.h>
 #include <termios.h>
 
+#include <unistd.h>
 
+
+#include <sys/ioctl.h>
 
 
 namespace BlackLib
@@ -345,6 +348,15 @@ namespace BlackLib
             * @sa BlackUartProperties
             */
             BlackUART(uartName uart, BlackUartProperties uartProperties);
+
+
+
+
+           int Byteavailable();
+
+
+
+
 
             /*! @brief Constructor of BlackUART class.
             *

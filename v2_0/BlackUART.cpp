@@ -48,7 +48,7 @@ namespace BlackLib
         this->uartErrors                = new errorUART( this->getErrorsFromCore() );
         this->constructorProperties     = BlackUartProperties(uartBaud, uartBaud, uartParity, uartStopBits, uartCharSize);
 
-        this->loadDeviceTree();
+       // this->loadDeviceTree();
     }
 
 
@@ -65,7 +65,7 @@ namespace BlackLib
         this->uartErrors                = new errorUART( this->getErrorsFromCore() );
         this->constructorProperties     = uartProperties;
 
-        this->loadDeviceTree();
+        //this->loadDeviceTree();
     }
 
 
@@ -81,7 +81,7 @@ namespace BlackLib
 
         this->uartErrors                = new errorUART( this->getErrorsFromCore() );
 
-        this->loadDeviceTree();
+        //this->loadDeviceTree();
     }
 
 
@@ -119,6 +119,7 @@ namespace BlackLib
     {
         int flags = 0;
 
+
         if( (openMode & ReadOnly)   == ReadOnly     ){  flags |= O_RDONLY;  }
         if( (openMode & WriteOnly)  == WriteOnly    ){  flags |= O_WRONLY;  }
         if( (openMode & ReadWrite)  == ReadWrite    ){  flags |= O_RDWR;    }
@@ -127,6 +128,9 @@ namespace BlackLib
         if( (openMode & NonBlock)   == NonBlock     ){  flags |= O_NONBLOCK;}
 
         this->uartFD = ::open(this->uartPortPath.c_str(), flags | O_NOCTTY);
+
+
+
 
 
         if( this->uartFD < 0 )
